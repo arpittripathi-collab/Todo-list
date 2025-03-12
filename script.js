@@ -39,11 +39,13 @@ function deleteFirstTodo() {
 
 function checkInput() {
     const span = document.createElement("span");
-    span.innerHTML = "Please input value";
+    span.innerHTML = "Please Input Value";
     const button = document.querySelector("#add-button");
     button.disabled = true;
     document.querySelector("#todo-container").appendChild(span);
      span.style.color = "red";
+     span.style.fontSize = "18px";
+     span.style.fontWeight = "bold";
      span.style.display = "flex";
      span.style.justifyContent = "left";
     setTimeout(() => {
