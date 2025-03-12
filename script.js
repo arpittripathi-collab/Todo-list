@@ -28,28 +28,60 @@ function render() {
  }
 }
 function deleteLastTodo() {
-    todos.splice(todos.length-1,1);
-    render();
+    if (todos.length === 0) {
+        checkTodo();
+    }
+    else{
+        todos.splice(todos.length-1,1);
+        render();
+    }
+    
 }
 function deleteFirstTodo() {
-    todos.splice(0,1);
-    render();
+    if (todos.length === 0) {
+        checkTodo()
+    }
+    else{
+        todos.splice(0,1);
+        render();
+    }
+    
 }
 
 
 function checkInput() {
     const span = document.createElement("span");
-    span.innerHTML = "Please Input Value";
+    span.innerHTML = "Please Input Value &#128544;";
     const button = document.querySelector("#add-button");
-    button.disabled = true;
     document.querySelector("#todo-container").appendChild(span);
      span.style.color = "red";
      span.style.fontSize = "18px";
      span.style.fontWeight = "bold";
      span.style.display = "flex";
      span.style.justifyContent = "left";
+     button.disabled = true;
     setTimeout(() => {
      document.querySelector("#todo-container").removeChild(span);
      button.disabled = false;
     }, 3000);
+}
+
+function checkTodo(){
+    const span = document.createElement("span");
+    span.innerHTML = "Nothing to delete &#128540;";
+    const button1 = document.querySelector("#delete-first-button");
+    const button2 = document.querySelector("#delete-last-button");
+    document.querySelector("#todo-container").appendChild(span);
+    span.style.color = "red";
+    span.style.fontSize = "18px";
+    span.style.fontWeight = "bold";
+    span.style.display = "flex";
+    span.style.justifyContent = "left";
+    button1.disabled = true;
+    button2.disabled = true;
+    setTimeout(() => {
+        document.querySelector("#todo-container").removeChild(span);
+        button1.disabled = false;
+        button2.disabled = false;
+       }, 3000);
 }
