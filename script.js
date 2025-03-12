@@ -29,4 +29,9 @@ function deleteFirstTodo() {
     todos.splice(0,1);
     render();
 }
-
+document.querySelector("#add-button").addEventListener("click", addTodo);
+document.querySelector("#todo-input").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        addTodo();
+    }
+});
