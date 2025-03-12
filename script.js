@@ -1,8 +1,13 @@
  let todos = [];
 function addTodo() {
+    if (document.querySelector("#todo-input").value === "") {
+        alert("Please enter a todo");
+        return;
+    }
     todos.push({
         title: document.querySelector("#todo-input").value,
     });
+    document.querySelector("#add-button").addEventListener("click", addTodo);
    render();
 }
 function createTodoElement(todos) {
@@ -12,6 +17,7 @@ function createTodoElement(todos) {
     div.appendChild(h1);
     document.querySelector("#todo-list").appendChild(div);
     document.querySelector("#todo-input").value = "";
+    
     return div;
 }
 function render() {
@@ -29,9 +35,11 @@ function deleteFirstTodo() {
     todos.splice(0,1);
     render();
 }
+
 document.querySelector("#add-button").addEventListener("click", addTodo);
 document.querySelector("#todo-input").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         addTodo();
     }
 });
+
