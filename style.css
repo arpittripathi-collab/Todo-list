@@ -7,8 +7,9 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: start;
+    height: 95vh;
+    margin: 5vh;
 }
 
 #todo-container {
