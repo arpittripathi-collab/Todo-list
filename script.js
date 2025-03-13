@@ -1,4 +1,4 @@
- let todos = [];
+let todos = [];
 function addTodo() {
     if (document.querySelector("#todo-input").value === "") {
       checkInput();
@@ -6,16 +6,33 @@ function addTodo() {
     else{
         todos.push({
             title: document.querySelector("#todo-input").value,
+            id: todos.length ,
         });
        render();
     }
     
 }
-function createTodoElement(todos) {
+function createTodoElement(todo) {
     const div = document.createElement("div");
-    const h1 = document.createElement("h1");
-    div.innerHTML = todos.title ;
-    div.appendChild(h1);
+    const h3 = document.createElement("h3");
+    const button = document.createElement("button");
+    button.innerHTML = "Delete";
+ 
+    
+    button.addEventListener("click", function() {
+        const index = todos.indexOf(todo);
+        if (index > -1) {
+            todos.splice(index, 1);
+            render();
+        }
+    });
+    div.style.padding = "0.5rem"; 
+    div.style.display = "flex"; 
+    div.style.justifyContent = "space-between";
+    h3.innerHTML = (todo.id + 1) + ". " + todo.title;
+    div.appendChild(h3);
+    div.appendChild(button);
+    
     document.querySelector("#todo-list").appendChild(div);
     document.querySelector("#todo-input").value = "";
     return div;
@@ -32,7 +49,7 @@ function deleteLastTodo() {
         checkTodo();
     }
     else{
-        todos.splice(todos.length-1,1);
+        todos.pop();
         render();
     }
     
@@ -42,7 +59,7 @@ function deleteFirstTodo() {
         checkTodo()
     }
     else{
-        todos.splice(0,1);
+        todos.shift();
         render();
     }
     
