@@ -44,11 +44,21 @@ button {
     margin: 5px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     transition: background-color 0.3s;
 }
 
 button:hover {
+    background-color: #0056b3;
+}
+.delete-button{
+    height: 7dvh;
+     width: 7dvw;
+     font-size: 18px;
+     /* padding: 10px 0px; */
+     /* margin-bottom: -50px ; */
+ }
+ .delete-button:hover {
     background-color: #0056b3;
 }
 
@@ -70,10 +80,12 @@ button:hover {
     #todo-container {
         width: 95%;
     }
- .delete-button{
-        width: 20%;
-        margin: 5px 0;
+    .delete-button{
+       height: 5dvh;
+        width: 20dvw;
+        margin-top: 10px;
     }
+
     button {
         width: 100%;
         margin: 5px 0;
