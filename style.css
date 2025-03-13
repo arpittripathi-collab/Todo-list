@@ -70,7 +70,7 @@ button:hover {
     #todo-container {
         width: 95%;
     }
-delete-button{
+.delete-button{
     width: 40%;
     margin: 5px 0;
 }
