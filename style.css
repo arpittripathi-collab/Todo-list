@@ -97,6 +97,11 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+    .delete-button{
+        height: 5dvh;
+         width: 20dvw;
+         margin-top: 10px;
+     }
     h1 {
         font-size: 20px;
     }
