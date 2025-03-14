@@ -1,16 +1,21 @@
 let todos = [];
 function addTodo() {
-    if (document.querySelector("#todo-input").value === "") {
+    const inputValue = document.querySelector("#todo-input").value;
+
+    
+    const sanitizedValue = inputValue.replace(/<\/?[^>]+(>|$)/g, "");
+
+    if (sanitizedValue === "") {
         checkInput();
-    }
-    else {
+        document.querySelector("#todo-input").value = "";
+        
+    } else {
         todos.push({
-            title: document.querySelector("#todo-input").value,
+            title: sanitizedValue, 
             id: todos.length,
         });
         render();
     }
-
 }
 document.querySelector("#todo-input").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
